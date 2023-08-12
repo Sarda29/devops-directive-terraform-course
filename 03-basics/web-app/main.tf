@@ -2,17 +2,10 @@ terraform {
   # Assumes s3 bucket and dynamo DB table already set up
   # See /code/03-basics/aws-backend
   backend "s3" {
-<<<<<<< HEAD
-    profile        = "default"
-    bucket         = "devops-directive-tf-state"
-    key            = "global/s3/terraform.tfstate"
-=======
     bucket         = "devops-directive-tff-state"
     key            = "03-basics/web-app/terraform.tfstate"
->>>>>>> 0a566b4c5a52cb3635ca028041b7ffd5ac6e86ae
     region         = "us-east-1"
     dynamodb_table = "terraform-state-locking"
-    key            = "1989"
     encrypt        = true
   }
 
@@ -25,8 +18,7 @@ terraform {
 }
 
 provider "aws" {
-  region     = "us-east-1"
-  profile    = "default"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "instance_1" {
